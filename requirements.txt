@@ -1,0 +1,13 @@
+# --- Core API & LLM ---
+openai>=1.0.0          # Handles OpenRouter and OpenAI API calls
+
+# --- Vector Database & Math ---
+faiss-cpu>=1.7.4       # Efficient similarity search for the bug corpus
+numpy>=1.24.0          # Matrix operations for embeddings
+
+# --- Model Context Protocol (MCP) ---
+mcp>=0.1.0             # Protocol for building agentic tools
+
+# --- Utilities ---
+tqdm>=4.65.0           # Progress bars for the ETL pipeline
+python-dotenv>=1.0.0   # (Optional) For managing OPENROUTER_API_KEY locally
