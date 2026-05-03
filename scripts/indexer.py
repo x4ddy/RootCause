@@ -160,7 +160,7 @@ class RootCausePipeline:
                 sample["bug_type"] = self._normalize_bug_type(sample.get("bug_type"))
                 f.write(json.dumps(sample) + "\n")
         
-        logger.info(f"✅ Normalized dataset saved to: {dataset_path}")
+        logger.info(f"Normalized dataset saved to: {dataset_path}")
 
         # 4. Generate Embeddings (Using the normalized data)
         logger.info(f"Phase 3: Embedding {len(parsed_samples)} samples...")
@@ -182,7 +182,7 @@ class RootCausePipeline:
 
         # 5. Build FAISS
         if not embeddings:
-            logger.error("❌ Phase 4 Failed: No embeddings generated.")
+            logger.error("Phase 4 Failed: No embeddings generated.")
             return
 
         logger.info("Phase 4: Constructing FAISS Index...")
@@ -197,7 +197,7 @@ class RootCausePipeline:
         with open(os.path.join(output_dir, "train_corpus_metadata.pkl"), "wb") as f:
             pickle.dump(valid_samples, f)
             
-        logger.info("✅ Pipeline Complete! Vector index and Metadata saved.")
+        logger.info("Pipeline Complete! Vector index and Metadata saved.")
 
 if __name__ == "__main__":
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
